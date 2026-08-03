@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Adaptive Habit Coach</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🌱 Today's Habits</h1>
+
+        <p class="subtitle">
+            Small progress every day leads to big results.
+        </p>
+
+        <!-- Progress Card -->
+
+        <div class="habit-card">
+
+            <h3>📊 Today's Progress</h3>
+
+            <h2>{{ completed }} / {{ total }}</h2>
+
+            <p>Keep going! Every small step matters. 🌱</p>
+
+        </div>
+
+        <!-- Habit Cards -->
+
+        {% for habit in habits %}
+
+        <div class="habit-card">
+
+            <h2>{{ habit.name }}</h2>
+
+            <p>
+
+                Status :
+
+                {% if habit.status == "Completed" %}
+
+                <span style="color:green;font-weight:bold;">
+                    ✅ Completed
+                </span>
+
+                {% else %}
+
+                <span style="color:#ff9800;font-weight:bold;">
+                    ⏳ Pending
+                </span>
+
+                {% endif %}
+
+            </p>
+
+            <div class="buttons">
+
+                <a href="/complete/{{ habit.id }}" class="complete-btn">
+
+                    ✅ Complete
+
+                </a>
+
+                <a href="/skip/{{ habit.id }}" class="skip-btn">
+
+                    ⏭ Skip
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+        <br><br>
+        <a href="/motivation" class="btn">
+            View Today's Motivation 🌱
+        </a>
+
+    </div>
+
+</body>
+
+</html>

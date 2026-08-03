@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skip Reason</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🌱 Adaptive Habit Coach</h1>
+
+    <h2>Why did you skip?</h2>
+
+    <h3>{{ habit.name }}</h3>
+
+    <div class="reason-box">
+
+        <a href="/suggestion/{{ habit.id }}/Busy" class="btn">Busy</a>
+
+        <a href="/suggestion/{{ habit.id }}/Forgot" class="btn">Forgot</a>
+
+        <a href="/suggestion/{{ habit.id }}/Low Energy" class="btn">Low Energy</a>
+
+        <a href="/suggestion/{{ habit.id }}/No Motivation" class="btn">No Motivation</a>
+
+        <a href="/suggestion/{{ habit.id }}/Other" class="btn">Other</a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
